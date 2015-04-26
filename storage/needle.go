@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/gob"
 	"fmt"
+	"github.com/Masterlvng/MCDFS/util"
 	"io"
 	"io/ioutil"
 	"math/rand"
@@ -13,7 +14,6 @@ import (
 	"strconv"
 	"strings"
 	"time"
-	"util"
 	//"encoding/hex"
 )
 
