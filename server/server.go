@@ -2,9 +2,9 @@ package server
 
 import (
 	"bytes"
-	"command"
 	"encoding/json"
 	"fmt"
+	"github.com/Masterlvng/MCDFS/command"
 	"github.com/goraft/raft"
 	"github.com/gorilla/mux"
 	"io/ioutil"
@@ -137,7 +137,7 @@ func (s *Server) readHandler(w http.ResponseWriter, req *http.Request) {
 		n.Cookie = uint32(cookie)
 		v.Read(n)
 		w.Write(n.Data)
-        fmt.Println(len(n.Data))
+		fmt.Println(len(n.Data))
 	} else {
 		http.Error(w, "vid not found", http.StatusBadRequest)
 	}
@@ -179,6 +179,6 @@ func (s *Server) writeHandler(w http.ResponseWriter, req *http.Request) {
 		w.Write(content)
 		return
 	}
-    leader := s.raftServer.Peers()[s.raftServer.Leader()].ConnectionString
+	leader := s.raftServer.Peers()[s.raftServer.Leader()].ConnectionString
 	w.Write([]byte(leader))
 }

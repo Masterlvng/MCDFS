@@ -1,13 +1,13 @@
 package main
 
 import (
-	"command"
 	"flag"
 	"fmt"
+	"github.com/Masterlvng/MCDFS/command"
+	"github.com/Masterlvng/MCDFS/server"
 	"github.com/goraft/raft"
 	"math/rand"
 	"os"
-	"server"
 	"time"
 )
 

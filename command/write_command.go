@@ -2,8 +2,8 @@ package command
 
 import (
 	"fmt"
+	"github.com/Masterlvng/MCDFS/storage"
 	"github.com/goraft/raft"
-	"storage"
 )
 
 type WriteCommand struct {
