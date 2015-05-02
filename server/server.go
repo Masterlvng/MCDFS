@@ -173,9 +173,7 @@ func (s *Server) writeHandler(w http.ResponseWriter, req *http.Request) {
 	if err == nil {
 		res := rv.(command.WriteRes)
 		w.Write([]byte(v.Id.String()))
-		w.Write([]byte("\n"))
 		content, _ := json.Marshal(res)
-		w.Write([]byte("\n"))
 		w.Write(content)
 		return
 	}

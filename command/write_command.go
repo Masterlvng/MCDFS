@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/Masterlvng/MCDFS/storage"
 	"github.com/goraft/raft"
+	"strconv"
 )
 
 type WriteCommand struct {
@@ -12,6 +13,7 @@ type WriteCommand struct {
 }
 
 type WriteRes struct {
+	Vid    uint64
 	Cookie uint32
 	Offset uint64
 	Size   uint32
@@ -41,7 +43,7 @@ func (c *WriteCommand) Apply(server raft.Server) (interface{}, error) {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
-	fmt.Printf("Get Needle %s", string(n.Name))
 	v.Write(n)
-	return WriteRes{n.Cookie, n.Offset, n.Size}, nil
+	uint64_vid, _ := strconv.ParseUint(v.Id.String(), 10, 10)
+	return WriteRes{uint64_vid, n.Cookie, n.Offset, n.Size}, nil
 }
