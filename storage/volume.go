@@ -3,10 +3,10 @@ package storage
 import (
 	"bytes"
 	"fmt"
+	"github.com/Masterlvng/MCDFS/util"
 	"os"
 	"path"
 	"sync"
-	"util"
 )
 
 type Volume struct {

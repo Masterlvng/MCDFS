@@ -5,13 +5,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/Masterlvng/MCDFS/command"
+	"github.com/Masterlvng/MCDFS/storage"
 	"github.com/goraft/raft"
 	"github.com/gorilla/mux"
 	"io/ioutil"
 	"math/rand"
 	"net/http"
 	"path/filepath"
-	"storage"
 	"strconv"
 	"sync"
 	"time"
@@ -62,7 +62,7 @@ func (s *Server) connectionString() string {
 
 func (s *Server) ListenAndServe(leader string) error {
 	var err error
-	t := raft.NewHTTPTransporter("/raft")
+	t := raft.NewHTTPTransporter("/raft", 200*time.Millisecond)
 	s.raftServer, err = raft.NewServer(s.name, s.path, t, nil, s.store, "")
 	if err != nil {
 		fmt.Println(err.Error())
