@@ -19,3 +19,19 @@ $ curl -F "file=@sample.jpg;type=image/jpg" http://127.0.0.1:4001/write
 $ wget http://127.0.0.1:4002/read/1/0/1234123/13412123
   (get file just uploaded)
 ```
+
+## Performance
+
+```
+run with no replcation @ Intel i5 CPU M480 2.67GHz, 6G Ram, 5400 rpm disk
+
+payload: 10K file
+
+write via http
+400000 ops in 53.458s
+qps:7482.50
+
+
+
+
+```
