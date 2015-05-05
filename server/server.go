@@ -68,6 +68,7 @@ func (s *Server) ListenAndServe(leader string) error {
 		fmt.Println(err.Error())
 	}
 	t.Install(s.raftServer, s)
+	s.raftServer.SetHeartbeatInterval(1 * time.Millisecond)
 	s.raftServer.Start()
 	if leader != "" {
 		s.Join(leader)

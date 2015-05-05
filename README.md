@@ -27,11 +27,17 @@ run with no replcation @ Intel i5 CPU M480 2.67GHz, 6G Ram, 5400 rpm disk
 
 payload: 10K file
 
+cluster config: one instance
+
 write via http
 400000 ops in 53.458s
 qps:7482.50
 
+cluster config: three instance
 
+write via http
+80000 ops in 36.83s
+qps:2172.14
 
 
 ```
